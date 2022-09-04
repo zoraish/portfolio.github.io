@@ -1,45 +1,71 @@
-
 @import "var";
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "mixin";
 
-html{
+html {
     scroll-behavior: smooth;
     position: relative;
 }
-html,body{
-    color: var(--body-clr);
+
+html,
+body {
+    color: var(--body-clr1);
     position: relative;
     background-color: var(--body-bg);
 }
-a{
+.navbar{
+    
+    .nav-link{
+        color: var(--body-clr1);
+        &:active,&.active,&:hover,&:focus{
+            color: var(--primary) !important;
+        }
+    }
+    &.sticky{
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        z-index: 999;
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow-d);
+        background-color:var(--dark);
+        animation: headerSlideDown 0.5s ease forwards
+    }
+}
+a {
     text-decoration: none;
 }
-.logo{
+
+.logo {
     height: 4em;
     width: 4em;
-    img{
+
+    img {
         max-width: 100%;
     }
 }
 
-.home{
+.home {
     padding: 5rem 0 2rem 0;
-    h1{
+
+    h1 {
+        color: $white;
         font-size: 4rem;
         text-shadow: 0px 1px 0px rgb(0 0 0 / 10%);
     }
 
-.element-section{
-    padding-top: 4rem;
+    .element-section {
+        padding-top: 4rem;
 
-        li{            
-            a{                
+        li {
+            a {
                 @include trans;
                 font-size: 1.3rem;
-                color: var(--body-clr);
-                &:hover{
-                    @include  gradient-primary;
+                color: var(--body-clr1);
+
+                &:hover {
+                    background: var(--card-bg-d1);
                     transform: translateY(-3px);
                 }
             }
@@ -48,58 +74,67 @@ a{
 }
 
 
-.flex-center-e{
+.flex-center-e {
     @include flex-center-e;
 }
 
 
-.thumbnail{
+.thumbnail {
     max-width: 70vw;
     position: relative;
     padding: .5rem;
-    img{
+    z-index: 1;
+
+    img {
         position: relative;
     }
 
-    &::after{
+    &::after {
         content: "";
         z-index: -1;
         width: 100%;
         left: 50%;
         bottom: 0;
-        height: calc(100% - 130px);        
-        position: absolute;        
+        height: calc(100% - 130px);
+        position: absolute;
         transform: translateX(-50%);
         box-shadow: var(--shadow-d);
         border-radius: 6px;
     }
 }
+
 // service
-.card-icon{
+.card-icon {
     //@include flex-center-e;
     border-radius: .3rem;
-    
-    i{
+
+    i {
         font-size: 3rem;
         color: var(--primary);
         @include text-shadow;
     }
 }
-.card{
+
+.card {
     border: 0;
-    @include myshadow;
     @include gradient-gray;
+    box-shadow: var(--shadow-d);
+    margin-bottom: 1.5rem !important;
 }
-.service{
+
+.service {
     padding: 3rem 0;
-    .card{
-        .card-content{
+
+    .card {
+        .card-content {
             @include trans;
             position: relative;
-            .content-inner{
+
+            .content-inner {
                 @include trans;
             }
-            &::before{
+
+            &::before {
                 content: "";
                 position: absolute;
                 width: 100%;
@@ -110,67 +145,80 @@ a{
                 z-index: 0;
             }
         }
-        &:hover .card-content{
-            .card-title,p,i{
+
+        &:hover .card-content {
+
+            .card-title,
+            p,
+            i {
                 color: var(--white);
             }
-            &::before{
+
+            &::before {
                 @include gradient-primary;
             }
         }
-        &:hover .content-inner{
+
+        &:hover .content-inner {
             transform: translateY(-1.25rem);
         }
     }
 }
 
-.heading-style{
+.heading-style {
     height: 2px;
     width: 120px;
     margin: auto;
     position: relative;
     background-color: var(--gray-light);
-    
-    &::before,&::after{
+
+    &::before,
+    &::after {
         content: '';
         height: 2px;
         width: 40%;
         left: 50%;
         position: absolute;
-        background-color:  var(--primary);
-        transform: translate(-50%,-50%);
+        background-color: var(--primary);
+        transform: translate(-50%, -50%);
         @include trans;
     }
-    &::after{
+
+    &::after {
         top: 1px;
     }
-    &::before{
+
+    &::before {
         bottom: -1px;
     }
 }
-section{
-    &:hover .heading-style{
-        &::after{
+
+section {
+    &:hover .heading-style {
+        &::after {
             top: -5px;
         }
-        &::before{
+
+        &::before {
             top: auto;
             bottom: -5px;
         }
     }
 }
-.portfolio{
-    .card{
-        .card-img{
+
+.portfolio {
+    .card {
+        .card-img {
             overflow: hidden;
-            
-            img{
+
+            img {
                 border-radius: .3rem;
                 transition: ease-in-out .3s all;
                 scale: 1;
             }
         }
-        &:hover img{
+
+        &:hover img {
             scale: 1.1;
         }
     }
@@ -178,17 +226,21 @@ section{
 
 // experience
 
-.card-list-wrap{
-    padding: 0  2em;
+.card-list-wrap {
+    padding: 0 2em;
     border-left: .3rem solid var(--border);
-    
-    .card-list{
+
+    .card-list {
         position: relative;
         margin-bottom: 2rem;
-        .card{
+
+        .card {
             @include trans;
         }
-        &::before{
+        .card-content{
+            color: var(--body-clr);
+        }
+        &::before {
             content: '';
             height: .3em;
             width: 2.2em;
@@ -199,7 +251,8 @@ section{
             position: absolute;
             transform: translateY(10px);
         }
-        &::after{
+
+        &::after {
             content: '';
             height: 1.5em;
             width: 1.5em;
@@ -213,60 +266,113 @@ section{
             transform: translateY(0px);
             @include trans;
         }
-        &:hover .card{
-            @include gradient-primary;
-            @include trans
+
+        &:hover {
+            .card {
+                background: var(--card-bg-d1);
+                @include trans
+            }
+
+            .card-heading,
+            h2 {
+                color: $white;
+
+            }
+
+            .card-content {
+                color: var(--body-clr1);
+            }
         }
-        &:hover::after{
+
+        &:hover::after {
             background-color: var(--primary);
         }
     }
 }
 
-.card-heading{
+.card-heading {
     margin-bottom: 1.5rem;
     border-bottom: 1px solid var(--gray-light1);
+
+    h2 {
+        color: var(--body-clr1);
+    }
 }
 
 // skils
-.skills{
-    .progress{
+.skills {
+    .progress {
         height: 6px;
         background-color: var(--gray-light1);
-        .progress-bar{            
+
+        .progress-bar {
             transition: width .6s;
         }
     }
 }
 
-.darkmode{
-    .home{
-        h1{
-            color: $white;
+
+.darkmode {
+    .navbar{
+        &.sticky{
+            background-color: var(--body-bg);
+            box-shadow: var(--shadow-l);
         }
     }
-    .element-section{
-        a{
-            color: var(--body-clr);
-            &.card:hover{
-                background: var(--card-bg-d1);
+    .home {
+        h1 {
+            color: $black;
+        }
+    }
+
+    .element-section {
+        a {
+            //color: $black;
+
+            &.card:hover {
+                
+                @include gradient-primary;
             }
         }
     }
-    .card{
-        box-shadow: var(--shadow-d);
+    .thumbnail{
+        &::after{
+            box-shadow: var(--shadow-l);
+        }
     }
-    .card-list{
-        .card-heading{
+    .card {
+        box-shadow: var(--shadow-l);
+    }
+
+    .card-list {
+        .card-heading {
             color: var(--body-clr1);
         }
-        &:hover{
-            .card{
-                background: var(--card-bg-d1);
+
+        &:hover {
+            .card {
+                background: var(--card-bg-l1);
             }
-            .card-heading{
-                color: $white;
+
+            .card-heading,h2 {
+                color: var(--body-clr);
             }
         }
+    }
+}
+
+
+@keyframes headerSlideDown {
+    0% {
+        margin-top: -100px;
+        opacity: 0;
+    }
+    30% {
+        margin-top: -50px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0;
+        opacity: 1;
     }
 }
