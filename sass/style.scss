@@ -1,0 +1,272 @@
+
+@import "var";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "mixin";
+
+html{
+    scroll-behavior: smooth;
+    position: relative;
+}
+html,body{
+    color: var(--body-clr);
+    position: relative;
+    background-color: var(--body-bg);
+}
+a{
+    text-decoration: none;
+}
+.logo{
+    height: 4em;
+    width: 4em;
+    img{
+        max-width: 100%;
+    }
+}
+
+.home{
+    padding: 5rem 0 2rem 0;
+    h1{
+        font-size: 4rem;
+        text-shadow: 0px 1px 0px rgb(0 0 0 / 10%);
+    }
+
+.element-section{
+    padding-top: 4rem;
+
+        li{            
+            a{                
+                @include trans;
+                font-size: 1.3rem;
+                color: var(--body-clr);
+                &:hover{
+                    @include  gradient-primary;
+                    transform: translateY(-3px);
+                }
+            }
+        }
+    }
+}
+
+
+.flex-center-e{
+    @include flex-center-e;
+}
+
+
+.thumbnail{
+    max-width: 70vw;
+    position: relative;
+    padding: .5rem;
+    img{
+        position: relative;
+    }
+
+    &::after{
+        content: "";
+        z-index: -1;
+        width: 100%;
+        left: 50%;
+        bottom: 0;
+        height: calc(100% - 130px);        
+        position: absolute;        
+        transform: translateX(-50%);
+        box-shadow: var(--shadow-d);
+        border-radius: 6px;
+    }
+}
+// service
+.card-icon{
+    //@include flex-center-e;
+    border-radius: .3rem;
+    
+    i{
+        font-size: 3rem;
+        color: var(--primary);
+        @include text-shadow;
+    }
+}
+.card{
+    border: 0;
+    @include myshadow;
+    @include gradient-gray;
+}
+.service{
+    padding: 3rem 0;
+    .card{
+        .card-content{
+            @include trans;
+            position: relative;
+            .content-inner{
+                @include trans;
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 0.375rem;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+        }
+        &:hover .card-content{
+            .card-title,p,i{
+                color: var(--white);
+            }
+            &::before{
+                @include gradient-primary;
+            }
+        }
+        &:hover .content-inner{
+            transform: translateY(-1.25rem);
+        }
+    }
+}
+
+.heading-style{
+    height: 2px;
+    width: 120px;
+    margin: auto;
+    position: relative;
+    background-color: var(--gray-light);
+    
+    &::before,&::after{
+        content: '';
+        height: 2px;
+        width: 40%;
+        left: 50%;
+        position: absolute;
+        background-color:  var(--primary);
+        transform: translate(-50%,-50%);
+        @include trans;
+    }
+    &::after{
+        top: 1px;
+    }
+    &::before{
+        bottom: -1px;
+    }
+}
+section{
+    &:hover .heading-style{
+        &::after{
+            top: -5px;
+        }
+        &::before{
+            top: auto;
+            bottom: -5px;
+        }
+    }
+}
+.portfolio{
+    .card{
+        .card-img{
+            overflow: hidden;
+            
+            img{
+                border-radius: .3rem;
+                transition: ease-in-out .3s all;
+                scale: 1;
+            }
+        }
+        &:hover img{
+            scale: 1.1;
+        }
+    }
+}
+
+// experience
+
+.card-list-wrap{
+    padding: 0  2em;
+    border-left: .3rem solid var(--border);
+    
+    .card-list{
+        position: relative;
+        margin-bottom: 2rem;
+        .card{
+            @include trans;
+        }
+        &::before{
+            content: '';
+            height: .3em;
+            width: 2.2em;
+            right: 100%;
+            top: 3em;
+            z-index: 1;
+            background-color: var(--border);
+            position: absolute;
+            transform: translateY(10px);
+        }
+        &::after{
+            content: '';
+            height: 1.5em;
+            width: 1.5em;
+            left: -48px;
+            top: 3em;
+            z-index: 1;
+            border-radius: 50%;
+            position: absolute;
+            border: 5px solid var(--border);
+            background-color: var(--body-bg);
+            transform: translateY(0px);
+            @include trans;
+        }
+        &:hover .card{
+            @include gradient-primary;
+            @include trans
+        }
+        &:hover::after{
+            background-color: var(--primary);
+        }
+    }
+}
+
+.card-heading{
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--gray-light1);
+}
+
+// skils
+.skills{
+    .progress{
+        height: 6px;
+        background-color: var(--gray-light1);
+        .progress-bar{            
+            transition: width .6s;
+        }
+    }
+}
+
+.darkmode{
+    .home{
+        h1{
+            color: $white;
+        }
+    }
+    .element-section{
+        a{
+            color: var(--body-clr);
+            &.card:hover{
+                background: var(--card-bg-d1);
+            }
+        }
+    }
+    .card{
+        box-shadow: var(--shadow-d);
+    }
+    .card-list{
+        .card-heading{
+            color: var(--body-clr1);
+        }
+        &:hover{
+            .card{
+                background: var(--card-bg-d1);
+            }
+            .card-heading{
+                color: $white;
+            }
+        }
+    }
+}

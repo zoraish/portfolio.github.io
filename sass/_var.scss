@@ -1,0 +1,44 @@
+
+$primary: #ffd500; //#ffc024
+$white: #ffffff;
+$body-bg:#ECF0F3;
+$gray-light:#D1D9E6;
+$card-bg: #ECF0F3;
+$gray-light1:#e2e8ec;
+$border: #d9dee2;
+
+$min-contrast-ratio:   2.5 !default;
+
+.darkmode{
+    --primary:              #{$primary};
+    --body-clr:             #878e99;
+    --body-clr1:             #c4cfde;
+    --white:                #23272b;
+    --body-bg:              #212428;
+    --gray-light:           #212428;
+    --card-bg:              var(--card-bg-d);
+    --gray-light1:          #16181c;
+    --border:               var(--gray-light1);
+
+    
+}
+:root{
+    --primary:              #{$primary};
+    --white:                #{$white};
+    --body-bg:              #{$body-bg};
+    --gray-light:           #{$gray-light};
+    --card-bg:              #{$card-bg};
+    --gray-light1:          #{$gray-light1};
+    --border:               #{$border};
+    --card-bg-d:            linear-gradient(145deg, #1e2024, #23272b);
+    --card-bg-d1:           linear-gradient(to right bottom, #212428, #16181c);
+    --shadow-l:             5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;
+    --shadow-d:             10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+}
+
+
+
+
+
+
+// Then add additional custom code here
