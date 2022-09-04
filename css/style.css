@@ -11294,4 +11294,9 @@ section:hover .heading-style::before {
     margin-top: 0;
     opacity: 1;
   }
+}
+@media (max-width: 768px) {
+  .container-fluid.px-5, .px-5.container-sm, .px-5.container-md, .px-5.container-lg, .px-5.container-xl, .px-5.container-xxl {
+    padding: 0 1.5rem !important;
+  }
 }/*# sourceMappingURL=style.css.map */

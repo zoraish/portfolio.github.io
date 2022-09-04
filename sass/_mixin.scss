@@ -1,5 +1,19 @@
 
-
+$breakpoint: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,    
+    xxxl: 1920px,
+    
+);
+@mixin max-s {
+    @media (max-width: map-get($breakpoint, 'md')){
+        @content;
+    }
+}
 @mixin trans {
     transition: ease-in-out .4s;
 }
@@ -39,3 +53,4 @@ $avatar-size:(
         box-shadow: var(--shadow-d)
     }
 }
+
