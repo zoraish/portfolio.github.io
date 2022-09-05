@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 :root {
   --primary: #ffd500;
   --body-clr: #878e99;
@@ -10996,6 +10997,22 @@ body {
   background-color: var(--body-bg);
 }
 
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar .navbar-toggler {
+  border: 0;
+  padding: 0.5rem;
+}
+.navbar .navbar-toggler:focus {
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+}
+.navbar .navbar-toggler i, .navbar .navbar-toggler span {
+  color: var(--body-clr1);
+}
 .navbar .nav-link {
   color: var(--body-clr1);
 }
@@ -11014,6 +11031,27 @@ body {
   background-color: var(--dark);
   -webkit-animation: headerSlideDown 0.5s ease forwards;
           animation: headerSlideDown 0.5s ease forwards;
+}
+.navbar .btn-theme {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--body-clr1);
+  position: absolute;
+  right: 2rem;
+  transform: translateX(-50%);
+}
+.navbar .btn-theme:hover {
+  color: #ffd500;
+}
+@media (max-width: 992px) {
+  .navbar .btn-theme {
+    right: 6rem;
+  }
 }
 
 a {
@@ -11240,6 +11278,9 @@ section:hover .heading-style::before {
   transition: width 0.6s;
 }
 
+.darkmode .navbar .navbar-toggler i, .darkmode .navbar .navbar-toggler span {
+  color: var(--body-clr1);
+}
 .darkmode .navbar.sticky {
   background-color: var(--body-bg);
   box-shadow: var(--shadow-l);
@@ -11295,8 +11336,11 @@ section:hover .heading-style::before {
     opacity: 1;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .container-fluid.px-5, .px-5.container-sm, .px-5.container-md, .px-5.container-lg, .px-5.container-xl, .px-5.container-xxl {
     padding: 0 1.5rem !important;
+  }
+  .card {
+    background-color: red !important;
   }
 }/*# sourceMappingURL=style.css.map */

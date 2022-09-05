@@ -13,8 +13,23 @@ body {
     position: relative;
     background-color: var(--body-bg);
 }
+.navbar-nav{
+    margin-left: auto;
+}
 .navbar{
-    
+    .navbar-toggler{
+        border: 0;
+        padding: .5rem;
+        &:focus{
+            outline: 0;
+            border: 0;
+            box-shadow: none;
+        }
+
+        i,span{
+            color: var(--body-clr1);
+        }
+    }
     .nav-link{
         color: var(--body-clr1);
         &:active,&.active,&:hover,&:focus{
@@ -30,7 +45,28 @@ body {
         backdrop-filter: blur(10px);
         box-shadow: var(--shadow-d);
         background-color:var(--dark);
-        animation: headerSlideDown 0.5s ease forwards
+        animation: headerSlideDown 0.5s ease forwards;
+        
+    }
+    .btn-theme{
+        height: 2.5rem;
+        width: 2.5rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: rgb(255 255 255 / 10%);
+        color: var(--body-clr1);
+        position: absolute;
+        right: 2rem;
+        transform: translateX(-50%);
+        
+        &:hover {
+            color: $primary;
+        }
+        @include max-lg{
+            right: 6rem;
+        }
     }
 }
 a {
@@ -314,6 +350,9 @@ section {
 
 .darkmode {
     .navbar{
+        .navbar-toggler{
+            i,span {color: var(--body-clr1);}
+        }
         &.sticky{
             background-color: var(--body-bg);
             box-shadow: var(--shadow-l);
@@ -380,5 +419,8 @@ section {
 @include max-s{
     .container-fluid.px-5{
         padding: 0 1.5rem !important;
+    }
+    .card{
+        background-color: red !important;
     }
 }
