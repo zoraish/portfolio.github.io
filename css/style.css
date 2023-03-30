@@ -11244,10 +11244,13 @@ section:hover .heading-style::before {
     background-color: red !important;
   }
 }
-footer .section-separator {
+.footer {
   position: relative;
 }
-footer .section-separator::after {
+.footer .section-separator {
+  position: relative;
+}
+.footer .section-separator::after {
   content: "";
   position: absolute;
   max-width: 1270px;
